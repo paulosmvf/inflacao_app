@@ -1,3 +1,4 @@
+import os
 import re
 import numpy as np
 import pandas as pd
@@ -142,7 +143,7 @@ m3.metric("Última data", serie["DATE"].max().date().isoformat())
 
 # Último valor (com fallback)
 ultimo_val = serie.dropna().iloc[-1]["valor"] if serie["valor"].notna().any() else np.nan
-m4.metric("Último valor", f"{ultimo_val:,.6f}".replace(",", "X").replace(".", ",").replace("X", ".")
+m4.metric("Último valor", f"{ultimo_val:,.6f}".replace(",", "X").replace(".", ",").replace("X", "."))
 
 # Gráfico / Tabela
 if modo == "Linha (tempo)":
